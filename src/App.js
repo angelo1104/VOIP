@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Home from "./Components/Home/Home";
 import {auth} from "./firebase";
 import {useStateValue} from "./StateProvider";
+import Chat from "./Components/Chat/Chat";
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
     <div className="app">
       <Router>
         <Switch>
+          <Route path={'/app'}>
+            <Chat/>
+          </Route>
           <Route path={'/'}>
             <Home/>
           </Route>

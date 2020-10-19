@@ -1,0 +1,9 @@
+.chat{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #36393F;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
