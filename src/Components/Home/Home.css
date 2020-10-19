@@ -1,0 +1,47 @@
+.home{
+    background-color: #36393F;
+    color: white;
+    display: grid;
+    min-height: 100vh;
+    min-width: 100vw;
+    place-items: center;
+}
+
+.signup{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.signup *{
+    max-width: 300px;
+}
+
+.dark{
+    color: white !important;
+}
+
+.submit-button{
+    background-color: #7289DA !important;
+    border-radius: 0 !important;
+    text-transform: capitalize !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 16px !important;
+}
+
+.submit-button:hover{
+    background-color: #677BC4 !important;
+}
+
+.signup-input{
+    background: transparent;
+    caret-color: white;
+    color: white;
+    border: none;
+    outline-width: 0;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 20px;
+    font-size: 20px;
+    padding: 5px;
+    font-family: 'Ubuntu', sans-serif;
+}
