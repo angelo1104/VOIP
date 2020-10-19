@@ -5,14 +5,15 @@ import Home from "./Components/Home/Home";
 import {auth} from "./firebase";
 import {useStateValue} from "./StateProvider";
 import Chat from "./Components/Chat/Chat";
+import Pusher from "pusher-js";
 
 function App() {
-
-
   //eslint-disable-next-line
   const [{user},dispatch] = useStateValue()
 
   useEffect(()=>{
+    speechSynthesis.getVoices()
+
     auth.onAuthStateChanged(authUser=>{
       if (authUser){
         dispatch({
@@ -27,6 +28,23 @@ function App() {
         })
       }
     })
+  },[dispatch])
+
+
+  useEffect(()=>{
+    const pusher = new Pusher('8cf3bbe87f04c93ad312', {
+      cluster: 'us3'
+    });
+
+    const channel = pusher.subscribe('MadKit');
+    channel.bind('updated', function(data) {
+
+      dispatch({
+        type: 'SET_MESSAGE',
+        message: data
+      })
+    });
+
   },[dispatch])
 
 

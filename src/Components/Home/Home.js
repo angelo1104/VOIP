@@ -1,23 +1,31 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './Home.css';
 import {Button} from "@material-ui/core";
 import {auth} from "../../firebase";
+import {useStateValue} from "../../StateProvider";
+import {useHistory} from 'react-router-dom';
 
 function Home() {
+    const history = useHistory()
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const [{user}] = useStateValue();
 
     const login = (event)=>{
         event.preventDefault();
 
         auth.signInWithEmailAndPassword(email,password)
             .then(authUser=>{
-                
+
             })
             .catch(error=>{
                 alert(error.message)
             })
     }
+
+    useEffect(()=>{
+        if (user) history.replace('/app')
+    },[user,history])
 
 
     return (
