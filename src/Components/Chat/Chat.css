@@ -7,3 +7,12 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.signout-button{
+    color: white !important;
+    width: 30% !important;
+    margin-top: 50px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 8px !important;
+}

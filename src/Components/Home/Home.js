@@ -21,6 +21,7 @@ function Home() {
             .catch(error=>{
                 alert(error.message)
             })
+
     }
 
     useEffect(()=>{
