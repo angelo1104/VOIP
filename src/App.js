@@ -2,14 +2,31 @@ import React, {useEffect} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Home from "./Components/Home/Home";
+import {auth} from "./firebase";
+import {useStateValue} from "./StateProvider";
 
 function App() {
 
 
-  useEffect(()=>{
+  //eslint-disable-next-line
+  const [{user},dispatch] = useStateValue()
 
-    //eslint-disable-next-line
-  },[])
+  useEffect(()=>{
+    auth.onAuthStateChanged(authUser=>{
+      if (authUser){
+        dispatch({
+          type: 'SET_USER',
+          user: authUser
+        })
+      }
+      else {
+        dispatch({
+          type: 'SET_USER',
+          user: authUser
+        })
+      }
+    })
+  },[dispatch])
 
 
   return (

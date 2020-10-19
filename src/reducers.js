@@ -1,5 +1,6 @@
 export const initialState = {
-    spoken: false
+    spoken: false,
+    user: null
 }
 
 const reducer = (state,action)=>{
@@ -8,6 +9,11 @@ const reducer = (state,action)=>{
             return {
                 ...state,
                 spoken: action.spoken
+            }
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user
             }
         default:
             return {...state}
